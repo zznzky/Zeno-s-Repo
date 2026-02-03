@@ -7,14 +7,14 @@ worker_manager::worker_manager()
 
 void worker_manager:: save_to_file()
 {
-	std::ofstream ofs("Ö°¹¤¹ÜÀíÏµÍ³.txt", std::ios::out | std::ios::trunc);
+	std::ofstream ofs("èŒå·¥ç®¡ç†ç³»ç»Ÿ.txt", std::ios::out | std::ios::trunc);
 	for (auto& p : pv)ofs << p->m_id << " " << p->m_name << " " << p->m_dep<< std::endl;
 	ofs.close();
 }
 
  void worker_manager::load_from_file()
 {
-	 std::ifstream ifs("Ö°¹¤¹ÜÀíÏµÍ³.txt", std::ios::in);
+	 std::ifstream ifs("èŒå·¥ç®¡ç†ç³»ç»Ÿ.txt", std::ios::in);
 	 if (!ifs.is_open())return;
 	 int id;
 	 std::string name;
@@ -31,10 +31,10 @@ void worker_manager:: save_to_file()
  void worker_manager::add_worker()
  {
 	 int id;
-	 std::cout << "ÇëÂ¼Èë±àºÅ\n";
+	 std::cout << "è¯·å½•å…¥ç¼–å·\n";
 	 while (!(std::cin >> id))
 	 {
-		 std::cout << "ÇëÊäÈëÊı×Ö\n";
+		 std::cout << "è¯·è¾“å…¥æ•°å­—\n";
 		 std::cin.clear();
 		 std::cin.ignore(1000, '\n');
 		 return;
@@ -43,15 +43,15 @@ void worker_manager:: save_to_file()
 	 {
 		 if (id == p->m_id)
 		 {
-			 std::cout << "µ±Ç°±àºÅÒÑ´æÔÚ\n";
+			 std::cout << "å½“å‰ç¼–å·å·²å­˜åœ¨\n";
 			 return;
 		 }
 	 }
 	 std::cin.ignore(1000,'\n');
 	 std::string name;
-	 std::cout << "ÇëÂ¼ÈëĞÕÃû\n";
+	 std::cout << "è¯·å½•å…¥å§“å\n";
 	 std::getline(std::cin, name);
-	 std::cout << "\nÇëÂ¼Èë¸ÚÎ»: 1.employee 2.manager 3.boss\n";
+	 std::cout << "\nè¯·å½•å…¥å²—ä½: 1.employee 2.manager 3.boss\n";
 	 int dep;
 	 while (true) {
 		 std::cin >> dep;
@@ -59,26 +59,26 @@ void worker_manager:: save_to_file()
 		 {
 			 pv.push_back(std::make_unique<employee>(id, name, dep));
 			 this->save_to_file();
-			 std::cout << "Ìí¼Ó³É¹¦\n";
+			 std::cout << "æ·»åŠ æˆåŠŸ\n";
 			 return;
 		 }
 		 else if (dep == 2)
 		 {
 			 pv.push_back(std::make_unique<manager>(id, name, dep));
 			 this->save_to_file();
-			 std::cout << "Ìí¼Ó³É¹¦\n";
+			 std::cout << "æ·»åŠ æˆåŠŸ\n";
 			 return;
 		 }
 		 else if (dep == 3)
 		 {
 			 pv.push_back(std::make_unique<boss>(id, name, dep));
 			 this->save_to_file();
-			 std::cout << "Ìí¼Ó³É¹¦\n";
+			 std::cout << "æ·»åŠ æˆåŠŸ\n";
 			 return;
 		 }
 		 else
 		 {
-			 std::cout << "ÇëÊäÈëÕıÈ·µÄÊı×Ö\n";
+			 std::cout << "è¯·è¾“å…¥æ­£ç¡®çš„æ•°å­—\n";
 			 std::cin.clear();
 			 std::cin.ignore(1000,'\n');
 		 }
@@ -87,7 +87,7 @@ void worker_manager:: save_to_file()
 
  void worker_manager::delete_worker()
  {
-	 std::cout << "ÇëÊäÈëÉ¾³ı¶ÔÏóµÄ±àºÅ\n";
+	 std::cout << "è¯·è¾“å…¥åˆ é™¤å¯¹è±¡çš„ç¼–å·\n";
 	 int id;
 	 std::cin >> id;
 	 for (auto it = pv.begin();it != pv.end();it++)
@@ -95,12 +95,12 @@ void worker_manager:: save_to_file()
 		 if ((*it)->m_id == id)
 		 {
 			 pv.erase(it);
-			 std::cout << "É¾³ı³É¹¦\n";
+			 std::cout << "åˆ é™¤æˆåŠŸ\n";
 			 this->save_to_file();
 			 return;
 		 }
 	 }
-	 std::cout << "É¾³ı¶ÔÏó²»´æÔÚ\n";
+	 std::cout << "åˆ é™¤å¯¹è±¡ä¸å­˜åœ¨\n";
 	 return;
  }
 
@@ -108,7 +108,7 @@ void worker_manager:: save_to_file()
  {
 	 if (pv.empty())
 	 {
-		 std::cout << "µ±Ç°ÔİÎŞÔ±¹¤\n";
+		 std::cout << "å½“å‰æš‚æ— å‘˜å·¥\n";
 		 return;
 	 }
 	 for (auto& p : pv)
@@ -120,36 +120,36 @@ void worker_manager:: save_to_file()
  void  worker_manager::is_exist()
  {
 	 int id;
-	 std::cout << "ÇëÊäÈë±àºÅ\n";
+	 std::cout << "è¯·è¾“å…¥ç¼–å·\n";
 	 std::cin >> id;
 	 for (auto& p : pv)
 	 {
 		 if (id == p->m_id)
 		 {
-			 std::cout << "²éÕÒ³É¹¦\n";
+			 std::cout << "æŸ¥æ‰¾æˆåŠŸ\n";
 			 p->show_info();
 			 return;
 		 }
 	 }
-	 std::cout << "²éÎŞ´ËÈË\n";
+	 std::cout << "æŸ¥æ— æ­¤äºº\n";
  }
 
  void  worker_manager::sort_file()
  {
 	 if (pv.empty())return;
 	 int i = 0;
-	 std::cout << "ÇëÊäÈëÅÅĞò·½Ê½(1.ÉıĞò 2.½µĞò)\n";
+	 std::cout << "è¯·è¾“å…¥æ’åºæ–¹å¼(1.å‡åº 2.é™åº)\n";
 	 std::cin >> i;
 	 if (i == 1)
 	 {
 		 std::sort(pv.begin(), pv.end(), compare1);
-		 std::cout << "ÅÅĞò³É¹¦\n";
+		 std::cout << "æ’åºæˆåŠŸ\n";
 		 this->save_to_file();
 	 }
 	 else if (i == 2)
 	 {
 		 std::sort(pv.begin(), pv.end(), compare2);
-		 std::cout << "ÅÅĞò³É¹¦\n";
+		 std::cout << "æ’åºæˆåŠŸ\n";
 		 this->save_to_file();
 	 }
 	 else return;
@@ -157,15 +157,15 @@ void worker_manager:: save_to_file()
 
  void  worker_manager::clear_file()
  {
-	 std::cout << "ÇëÔÙ´ÎÈ·ÈÏ (1.Çå¿Õ 2.·µ»Ø)";
+	 std::cout << "è¯·å†æ¬¡ç¡®è®¤ (1.æ¸…ç©º 2.è¿”å›)";
 	 int i;
 	 std::cin >> i;
 	 if (i == 1)
 	 {
-		 std::ofstream ofs("Ö°¹¤¹ÜÀíÏµÍ³.txt", std::ios::out | std::ios::trunc);
+		 std::ofstream ofs("èŒå·¥ç®¡ç†ç³»ç»Ÿ.txt", std::ios::out | std::ios::trunc);
 		 ofs.close();
 		 pv.clear();
-		 std::cout << "ÎÄ¼şÇå¿Õ³É¹¦\n";
+		 std::cout << "æ–‡ä»¶æ¸…ç©ºæˆåŠŸ\n";
 		 return;
 	 }
 	 else return;
