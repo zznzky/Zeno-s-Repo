@@ -2,14 +2,14 @@
 
 void menu()
 {
-	std::cout << "»¶Ó­½øÈëÖ°¹¤¹ÜÀíÏµÍ³\n";
-	std::cout << "*** 1.Â¼Èë ***\n";
-	std::cout << "*** 2.²éÑ¯ ***\n";
-	std::cout << "*** 3.É¾³ý ***\n";
-	std::cout << "*** 4.È«ÀÀ ***\n";
-	std::cout << "*** 5.ÅÅÐò ***\n";
-	std::cout << "*** 6.Çå¿Õ ***\n";
-	std::cout << "*** 0.ÍË³ö ***\n";
+	std::cout << "æ¬¢è¿Žè¿›å…¥èŒå·¥ç®¡ç†ç³»ç»Ÿ\n";
+	std::cout << "*** 1.å½•å…¥ ***\n";
+	std::cout << "*** 2.æŸ¥è¯¢ ***\n";
+	std::cout << "*** 3.åˆ é™¤ ***\n";
+	std::cout << "*** 4.å…¨è§ˆ ***\n";
+	std::cout << "*** 5.æŽ’åº ***\n";
+	std::cout << "*** 6.æ¸…ç©º ***\n";
+	std::cout << "*** 0.é€€å‡º ***\n";
 }
 
 int main()
@@ -28,7 +28,7 @@ int main()
 		case 4:worker.show_worker();break;
 		case 5:worker.sort_file();break;
 		case 6:worker.clear_file();break;
-		case 0:std::cout << "»¶Ó­ÏÂ´ÎÊ¹ÓÃ";return 0;
+		case 0:std::cout << "æ¬¢è¿Žä¸‹æ¬¡ä½¿ç”¨";return 0;
 		default:break;
 		}
 	}
